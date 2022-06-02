@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import linepy
-import LINE
+from linepy import LINE, OEPoll, Filters
 from LINE.lib.curve.ttypes import *
 from datetime import datetime
 import time, random, sys, ast, re, os, io, json, subprocess, threading, string, codecs, requests, ctypes, urllib, urllib2, urllib3, wikipedia, tempfile
