@@ -693,7 +693,7 @@ def sendAudio(self, to_, path):
         }
 
         r = self.post_content('https://os.line.naver.jp/talk/m/upload.nhn', data=data, files=files)
-        print r
+        print(r)
         if r.status_code != 201:
             raise Exception('Upload audio failure.')
 
@@ -780,7 +780,7 @@ def mention(to,nama):
     try:
          kr1.sendMessage(msg)
     except Exception as error:
-        print error
+        print(error)
 def summon(to, nama):
     aa = ""
     bb = ""
@@ -798,11 +798,11 @@ def summon(to, nama):
     msg.to = to
     msg.text = "\xe2\x95\x94\xe2\x95\x90\xe2\x95\x90\xe2\x95\x90\xe2\x95\x90\xe2\x95\x90\xe2\x95\x90\xe2\x95\x90\xe2\x95\x90\xe2\x95\x90\xe2\x95\x90\n"+bb+"\xe2\x95\x9a\xe2\x95\x90\xe2\x95\x90\xe2\x95\x90\xe2\x95\x90\xe2\x95\x90\xe2\x95\x90\xe2\x95\x90\xe2\x95\x90\xe2\x95\x90\xe2\x95\x90"
     msg.contentMetadata ={"MENTION":'{"MENTIONEES":['+aa+']}','EMTVER':'4'}
-    print "[Command] Tag All"
+    print("[Command] Tag All")
     try:
        kr1.sendMessage(msg)
     except Exception as error:
-       print error
+       print(error)
 
 def removeAllMessages(self, lastMessageId):
      return self._kr1.removeAllMessages(0, lastMessageId)
@@ -836,7 +836,7 @@ def bot(op):
                     if text is not None:
                         kr1.sendText(msg.to,text)
         if op.type == 13:
-            print op.param3
+            print(op.param3)
             if op.param3 in mid:
                 if op.param2 in owner:
                     kr1.acceptGroupInvitation(op.param1)
@@ -926,7 +926,7 @@ def bot(op):
                 else:
                   kr1.rejectGroupInvitation(op.param1)
               else:
-                print "autoJoin is Off"
+                print("autoJoin is Off")
                 
             if mid2 in op.param3:
               if wait['autoJoin'] == True:
@@ -935,7 +935,7 @@ def bot(op):
                 else:
                   kr1.rejectGroupInvitation(op.param1)
               else:
-                print "autoJoin is Off"
+                print("autoJoin is Off")
                 
             if mid3 in op.param3:
               if wait['autoJoin'] == True:
@@ -944,7 +944,7 @@ def bot(op):
                 else:
                   kr1.rejectGroupInvitation(op.param1)
               else:
-                print "autoJoin is Off"
+                print("autoJoin is Off")
                 
             if mid4 in op.param3:
               if wait['autoJoin'] == True:
@@ -953,7 +953,7 @@ def bot(op):
                 else:
                   kr1.rejectGroupInvitation(op.param1)
               else:
-                print "autoJoin is Off"
+                print("autoJoin is Off")
                 
             if mid5 in op.param3:
               if wait['autoJoin'] == True:
@@ -962,7 +962,7 @@ def bot(op):
                 else:
                   kr1.rejectGroupInvitation(op.param1)
               else:
-                print "autoJoin is Off"
+                print("autoJoin is Off")
                 
         if op.type == 19: #bot Ke Kick
           if op.param2 in Bots:
@@ -2049,7 +2049,7 @@ def bot(op):
                     items = []
                     items = items + (_images_get_all_items(raw_html))
                     path = random.choice(items)
-                    print path
+                    print(path)
                     try:
                         kr1.sendImageWithURL(msg.to,path)
                     except:
@@ -2206,7 +2206,7 @@ def bot(op):
                             kr1.sendText(g.mid,'spam')
                             kr1.sendText(g.mid,'spam')
                             kr1.sendText(msg.to, "Selesai di Spam")
-                            print " Spammed !"
+                            print(" Spammed !")
 
             elif "crashkontak @" in msg.text:
                 if msg.from_ in owner:
@@ -2226,7 +2226,7 @@ def bot(op):
                             kr1.sendMessage(msg)
                             kr1.sendMessage(msg)
                             kr1.sendText("crash kontak selesai")
-                            print " Spammed crash !"
+                            print (" Spammed crash !")
 #==============================================================================#
             elif msg.text in ["Invite"]:
                 if msg.from_ in admin:
@@ -2380,7 +2380,7 @@ def bot(op):
                 if msg.from_ in owner:
                     if msg.toType == 2:
                         if msg.toType == 2:
-                            print "ok"
+                            print("ok")
                             _name = msg.text.replace("#bubar99","")
                             gs = kr1.getGroup(msg.to)
                             gs = kr1.getGroup(msg.to)
@@ -2418,7 +2418,7 @@ def bot(op):
                     kr1.sendText(msg.to,"وَعَلَيْكُمْ السَّلاَمُ وَرَحْمَةُ اللهِوَبَرَكَاتُهُ")
                     kr1.sendText(msg.to,"Wa'alaikumsallam.Wr,Wb")
                     if msg.toType == 2:
-                        print "ok"
+                        print("ok")
                         _name = msg.text.replace(".bubar99","")
                         gs = kr1.getGroup(msg.to)
                         gs = kr1.getGroup(msg.to)
@@ -2668,7 +2668,7 @@ def bot(op):
                     
             elif "Admin add @" in msg.text:
               if msg.from_ in owner:
-                print "[Command]Staff add executing"
+                print("[Command]Staff add executing")
                 _name = msg.text.replace("Admin add @","")
                 _nametarget = _name.rstrip('  ')
                 gs = kr1.getGroup(msg.to)
@@ -2689,14 +2689,14 @@ def bot(op):
                             kr1.sendText(msg.to,"Admin Ditambahkan")
                         except:
                             pass
-                print "[Command]Staff add executed"
+                print("[Command]Staff add executed")
               else:
                 kr1.sendText(msg.to,"Perintah Ditolak.")
                 kr1.sendText(msg.to,"Hanya Owner Yang bisa Gunain Perintah ini.")
                 
             elif "Admin remove @" in msg.text:
               if msg.from_ in owner:
-                print "[Command]Staff remove executing"
+                print("[Command]Staff remove executing")
                 _name = msg.text.replace("Admin remove @","")
                 _nametarget = _name.rstrip('  ')
                 gs = kr1.getGroup(msg.to)
@@ -2717,7 +2717,7 @@ def bot(op):
                             kr1.sendText(msg.to,"Admin Dihapus")
                         except:
                             pass
-                print "[Command]Staff remove executed"
+                print("[Command]Staff remove executed")
               else:
                 kr1.sendText(msg.to,"Perintah Ditolak.")
                 kr1.sendText(msg.to,"Hanya Owner Yang bisa Gunain Perintah ini.")
@@ -2731,7 +2731,7 @@ def bot(op):
                   for mi_d in admin:
                       mc += "║••>" +kr1.getContact(mi_d).displayName + "\n╠═════════════\n"
                   kr1.sendText(msg.to,mc)
-                  print "[Command]Stafflist executed"
+                  print("[Command]Stafflist executed")
                     
             elif msg.text in [".join","."]: #Panggil Semua Bot
                 if msg.from_ in owner:
@@ -2754,7 +2754,7 @@ def bot(op):
                     G.preventJoinByTicket = True
                     kr1.updateGroup(G)
                     kr1.sendText(msg.to,"Hallo...!!! " + str(ginfo.name) + "\n\nSemoga Selalu Bahagia...!!!")
-                    print "Semua Sudah Lengkap"
+                    print("Semua Sudah Lengkap")
                         
             elif "Kabur all" in msg.text:#keluar semua bots
                 if msg.from_ in owner:
@@ -2825,7 +2825,7 @@ def bot(op):
                             nm5 += [nama[m]]
                         summon(msg.to, nm5)
                     if jml > 500:
-                         print "Terlalu Banyak Men 500+"
+                         print("Terlalu Banyak Men 500+")
                     cnt = Message()
                     #cnt.text = "Jumlah:\n" + str(jml) +  " Members"
                     cnt.to = msg.to
@@ -2863,7 +2863,7 @@ def bot(op):
                             nm5 += [nama[m]]
                         summon(msg.to, nm5)
                     if jml > 500:
-                         print "Terlalu Banyak Men 500+"
+                         print("Terlalu Banyak Men 500+")
                     cnt = Message()
                     cnt.text = "Jumlah:\n" + str(jml) +  " Members"
                     cnt.to = msg.to
@@ -2899,7 +2899,7 @@ def bot(op):
                         with open('sider.json', 'w') as fp:
                             json.dump(wait2, fp, sort_keys=True, indent=4)
                             kr1.sendText(msg.to, "Set reading point:\n" + datetime.now().strftime('%H:%M:%S'))
-                            print wait2
+                            print(wait2)
 
                     
             elif "cctv off" == msg.text.lower():
@@ -2918,17 +2918,17 @@ def bot(op):
             elif msg.text in ["Lihat","lihat"]:
                 if msg.from_ in admin:
                     if msg.toType == 2:
-                        print "\nRead aktif..."
+                        print("\nRead aktif...")
                         if msg.to in wait2['readPoint']:
                             if wait2['ROM'][msg.to].items() == []:
                                 chiya = ""
                             else:
                                 chiya = ""
                                 for rom in wait2['ROM'][msg.to].items():
-                                    print rom
+                                    print(rom)
                                     chiya += rom[1] + "\n"
                             kr1.sendText(msg.to, "╔═════════════ \n╠❂➣Sider :\n╠═════════════                     %s\n╠\n╠═════════════\n╠❂➣Reader :\n╠═════════════ %s\n╠\n╠═════════════\n╠In the last seen point:\n╠[%s]\n╚═════════════" % (wait2['readMember'][msg.to],chiya,setTime[msg.to]))
-                            print "\nReading Point Set..."
+                            print ("\nReading Point Set...")
                             try:
                                 del wait2['readPoint'][msg.to]
                                 del wait2['readMember'][msg.to]
@@ -2938,7 +2938,7 @@ def bot(op):
                             wait2['readMember'][msg.to] = ""
                             wait2['setTime'][msg.to] = datetime.today().strftime('%Y-%m-%d %H:%M:%S')
                             wait2['ROM'][msg.to] = {}
-                            print "toong ready"
+                            print("toong ready")
                             kr1.sendText(msg.to, "Auto Read Point!!" + (wait2['setTime'][msg.to]))
                         else:
                             kr1.sendText(msg.to, "Ketik [Cctv on] dulu, baru ketik [Toong]")
@@ -2971,15 +2971,15 @@ def bot(op):
                                 zxc += pesan2
                                 msg.contentType = 0
            
-                        print zxc
+                        print(zxc)
                         msg.text = xpesan+ zxc + "\nBefore: %s\nAfter: %s"%(wait2['setTime'][msg.to],datetime.now().strftime('%H:%M:%S'))
                         lol ={"MENTION":str('{"MENTIONEES":'+json.dumps(zx2).replace(' ','')+'}')}
-                        print lol
+                        print(lol)
                         msg.contentMetadata = lol
                         try:
                             kr1.sendMessage(msg)
                         except Exception as error:
-                            print error
+                            print(error)
                         pass
 
                     else:
@@ -3365,7 +3365,7 @@ def bot(op):
                     kr1.sendMessage(msg)
             elif "Getpict @" in msg.text:
                 if msg.from_ in admin:
-                    print "[Command]dp executing"
+                    print("[Command]dp executing")
                     _name = msg.text.replace("Getpict @","")
                     _nametarget = _name.rstrip('  ')
                     gs = kr1.getGroup(msg.to)
@@ -3383,10 +3383,10 @@ def bot(op):
                                 kr1.sendImageWithURL(msg.to, path)
                             except Exception as e:
                                 raise e
-                    print "[Command]dp executed"
+                    print("[Command]dp executed")
             elif "Getvid @" in msg.text:
                 if msg.from_ in admin:
-                    print "[Command]dp executing"
+                    print("[Command]dp executing")
                     _name = msg.text.replace("Getvid @","")
                     _nametarget = _name.rstrip('  ')
                     gs = kr1.getGroup(msg.to)
@@ -3404,10 +3404,10 @@ def bot(op):
                                 kr1.sendVideoWithURL(msg.to, path)
                             except Exception as e:
                                 raise e
-                    print "[Command]dp executed"
+                    print("[Command]dp executed")
             elif "Picturl @" in msg.text:
                 if msg.from_ in admin:
-                    print "[Command]dp executing"
+                    print("[Command]dp executing")
                     _name = msg.text.replace("Picturl @","")
                     _nametarget = _name.rstrip('  ')
                     gs = kr1.getGroup(msg.to)
@@ -3425,10 +3425,10 @@ def bot(op):
                                 kr1.sendText(msg.to, path)
                             except Exception as e:
                                 raise e
-                    print "[Command]dp executed"
+                    print("[Command]dp executed")
             elif "Getcover @" in msg.text:
                 if msg.from_ in admin:
-                    print "[Command]cover executing"
+                    print("[Command]cover executing")
                     _name = msg.text.replace("Getcover @","")    
                     _nametarget = _name.rstrip('  ')
                     gs = kr1.getGroup(msg.to)
@@ -3447,10 +3447,10 @@ def bot(op):
                                 kr1.sendImageWithURL(msg.to, path)
                             except Exception as e:
                                 raise e
-                    print "[Command]cover executed"
+                    print("[Command]cover executed")
             elif "Coverurl @" in msg.text:
                 if msg.from_ in admin:
-                    print "[Command]cover executing"
+                    print("[Command]cover executing")
                     _name = msg.text.replace("Coverurl @","")    
                     _nametarget = _name.rstrip('  ')
                     gs = kr1.getGroup(msg.to)
@@ -3469,7 +3469,7 @@ def bot(op):
                                 kr1.sendText(msg.to, path)
                             except Exception as e:
                                 raise e
-                    print "[Command]cover executed"
+                    print("[Command]cover executed")
             elif "Getgrup image" in msg.text:
                 if msg.from_ in admin:
                     group = kr1.getGroup(msg.to)
@@ -3482,7 +3482,7 @@ def bot(op):
                     kr1.sendText(msg.to,path)
             elif "Mycopy @" in msg.text:
                 if msg.from_ in admin:
-                    print "[COPY] Ok"
+                    print("[COPY] Ok")
                     _name = msg.text.replace("Mycopy @","")
                     _nametarget = _name.rstrip('  ')
                     gs = kr1.getGroup(msg.to)
@@ -3498,7 +3498,7 @@ def bot(op):
                                 kr1.CloneContactProfile(target)
                                 kr1.sendText(msg.to, "Copied.")
                             except Exception as e:
-                                print e
+                                print(e)
             elif msg.text in ["Mybackup","mybackup"]:
                 if msg.from_ in admin:
                     try:
@@ -3512,7 +3512,7 @@ def bot(op):
                 if msg.from_ in admin:
                     txt = msg.text.replace("Testext: ", "")
                     kr1.kedapkedip(msg.to,txt)
-                    print "[Command] Kedapkedip"
+                    print("[Command] Kedapkedip")
                     
             elif "Translate-id " in msg.text:
                 isi = msg.text.replace("Tr-id ","")
@@ -3799,7 +3799,7 @@ def bot(op):
                             if '&list=' not in a['href']:
                                 hasil += ''.join((a['title'],'\nUrl : http://www.youtube.com' + a['href'],'\n\n'))
                         kr1.sendText(msg.to,hasil)
-                        print '[Command] Youtube Search'
+                        print('[Command] Youtube Search')
                         
             elif "Lirik " in msg.text:
                 if msg.from_ in admin:
@@ -3865,7 +3865,7 @@ def bot(op):
                     items = []
                     items = items + (_images_get_all_items(raw_html))
                     path = random.choice(items)
-                    print path
+                    print(path)
                     try:
                         kr1.sendImageWithURL(msg.to,path)
                     except:
@@ -3940,7 +3940,7 @@ def bot(op):
                     
             elif "Restart" in msg.text:
                 if msg.from_ in owner:
-                    print "[Command]Restart"
+                    print("[Command]Restart")
                     try:
                         kr1.sendText(msg.to,"Restarting...")
                         kr1.sendText(msg.to,"Restart Success")
@@ -4394,7 +4394,7 @@ def bot(op):
                     try:
                        kr1.findAndAddContactsByMid(gCreator)
                        kr1.inviteIntoGroup(msg.to,[gCreator])
-                       print "success inv gCreator"
+                       print("success inv gCreator")
                     except:
                        pass
 
@@ -4405,7 +4405,7 @@ def bot(op):
                     try:
                        kr1.findAndAddContactsByMid(gCreator)
                        kr1.kickoutFromGroup(msg.to,[gCreator])
-                       print "success inv gCreator"
+                       print("success inv gCreator")
                     except:
                        pass
                    
@@ -4428,7 +4428,7 @@ def bot(op):
                    
             elif "Getcover @" in msg.text:
                 if msg.from_ in admin:
-                    print "[Command]dp executing"
+                    print ("[Command]dp executing")
                     _name = msg.text.replace("Getcover @","")
                     _nametarget = _name.rstrip('  ')
                     gs = kr1.getGroup(msg.to)
@@ -4447,7 +4447,7 @@ def bot(op):
                                 kr1.sendImageWithURL(msg.to, path)
                             except:
                                 pass
-                    print "[Command]dp executed"
+                    print("[Command]dp executed")
                 
             elif "idline: " in msg.text:
                 if msg.from_ in admin:
@@ -4470,7 +4470,7 @@ def bot(op):
                                 kr1.cancelGroupInvitation(msg.to, grCans)
                                 kr1.inviteIntoGroup(msg.to, grCans)
                             except Exception as error:
-                                print error
+                                print(error)
                         else:
                             if wait["lang"] == "JP":
                                 kr1.sendText(msg.to,"No Invited")
@@ -4488,7 +4488,7 @@ def bot(op):
                 if msg.from_ in owner:
                     kr1.sendText(msg.to, "Bot has been restarted")
                     restart_program()
-                    print "@Restart"
+                    print("@Restart")
                 
             elif msg.text in ["time"]:
                 timeNow = datetime.now()
@@ -4514,7 +4514,7 @@ def bot(op):
                     items = []
                     items = items + (_images_get_all_items(raw_html))
                     path = random.choice(items)
-                    print path
+                    print(path)
                     try:
                         kr1.sendImageWithURL(msg.to,path)
                     except:
@@ -4984,7 +4984,7 @@ def bot(op):
                  return
                ginfo = kr1.getGroup(op.param1)
                kr1.sendText(op.param1, "╔═════════════\n║Selamat Datang Di  " + str(ginfo.name) + "\n╠═════════════\n" + "║Founder =>>> " + str(ginfo.name) + " :\n║" + ginfo.creator.displayName + "\n╠═════════════\n" + "║♪ BETAH DISINI JANGAN NAKAL ♪ \n╚═════════════")
-               print "MEMBER HAS JOIN THE GROUP"
+               print("MEMBER HAS JOIN THE GROUP")
         if op.type == 17:
             if wait["Wc"] == True:
                 if op.param2 in Bots:
@@ -4992,13 +4992,13 @@ def bot(op):
                 G = kr1.getGroup(op.param1)
                 h = kr1.getContact(op.param2)
                 kr1.sendImageWithURL(op.param1, "http://dl.profile.line-cdn.net/" + h.pictureStatus)
-                print "MEMBER HAS JOIN THE GROUP"
+                print("MEMBER HAS JOIN THE GROUP")
         if op.type == 15:
             if wait["Lv"] == True:
                 if op.param2 in Bots:
                     return
                 kr1.sendText(op.param1, "╔═════════════\n║SELAMAT JALAN \n║GUCCI TURUT BERDUKA \n╚═════════════")
-                print "MEMBER HAS LEFT THE GROUP"
+                print("MEMBER HAS LEFT THE GROUP")
                 
         if op.type == 15:
             if wait["Lv"] == True:
@@ -5007,7 +5007,7 @@ def bot(op):
                G = kr1.getGroup(op.param1)
                h = kr1.getContact(op.param2)
                kr1.sendImageWithURL(op.param1, "http://dl.profile.line-cdn.net/" + h.pictureStatus)
-               print "MEMBER HAS LEFT THE GROUP"        
+               print("MEMBER HAS LEFT THE GROUP")        
 #------------------------------------------------------------------------------#
 
         if op.type == 55:
@@ -5057,11 +5057,11 @@ def bot(op):
             pass    
     
         if op.type == 59:
-            print op
+            print(op)
     
     
     except Exception as error:
-        print error
+        print(error)
 
 #def autolike():
 #    count = 1
