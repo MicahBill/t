@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-
-import LINETCR
-from LINETCR.lib.curve.ttypes import *
+import linepy
+import LINE
+from LINE.lib.curve.ttypes import *
 from datetime import datetime
 import time, random, sys, ast, re, os, io, json, subprocess, threading, string, codecs, requests, ctypes, urllib, urllib2, urllib3, wikipedia, tempfile
 from bs4 import BeautifulSoup
@@ -12,31 +12,31 @@ from threading import Thread
 from gtts import gTTS
 from googletrans import Translator
 
-kr1 = LINETCR.LINE()
+kr1 = LINE.LINE()
 #kr1.login(qr=True)∆=====[GUCCI GANG]=====∆
 kr1.login(token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3ZDEwZTdjOC1mNzNmLTRiZjctOTI1OC1hNWYzMjA1OGJlMjUiLCJhdWQiOiJMSU5FIiwiaWF0IjoxNjUzNTkyNDkxLCJleHAiOjE2NTQxOTcyOTEsInNjcCI6IkxJTkVfQ09SRSIsInJ0aWQiOiIyMWUxMjBmNy1mMDYzLTRmZGMtOWIwMi04YjQyMDE2OTQ1NTQiLCJyZXhwIjoxODExMjcyNDkxLCJ2ZXIiOiIzLjEiLCJhaWQiOiJ1N2FjNzhiOGY0ZDY2MDY5ZTljYTI0MTA1ZGM5MDM5N2UiLCJsc2lkIjoiOTZmN2M2YzktZDRmNy00MmY2LTk2ZjUtYjA5YjA0OTlmM2NlIiwiZGlkIjoiZTFjN2EwYzlmZWE0NmQwZDU2ZjM3YTI0ZDNlN2M4ZGEiLCJjdHlwZSI6IkFORFJPSUQiLCJjbW9kZSI6IlBSSU1BUlkiLCJjaWQiOiIwMDAwMDAwMDAwIn0.8heh18PTdKmv2bGu-UW5NYg8-BYgomjlZwXMlWckW_8")
 kr1.loginResult()
 print("=====[logged in]=====")
 
-##kr1 = LINETCR.LINE()
+##kr1 = LINE.LINE()
 ##kr1.login(qr=True)∆=====[GUCCI GANG]=====∆
 ##kr1.login(token="EpRgEBEloSbgzt49eOF3.njpVw87HfgBdls4XEGeHSW.mXvTqmQL+DCjSN1DVmCS7zXIfYTuugx3y3/snorliXE=")
 ##kr1.loginResult()
 ##print "=====[GUCCI GANG]====="
 
-##kr1 = LINETCR.LINE()
+##kr1 = LINE.LINE()
 ##kr1.login(qr=True)∆=====[GUCCI GANG]=====∆
 ##kr1.login(token="EpiBruS5ajwwlyiH6Gq4.L4LcdvW8qnzdUvv+wM8Yza.Lpm0cboJIiCiNUZZeJ3Nv4LSGmyjKzfvZrsVuUaAKGw=")
 ##kr1.loginResult()
 ##print "=====[GUCCI GANG]====="
 
-##kr1 = LINETCR.LINE()
+##kr1 = LINE.LINE()
 #kr1.login(qr=True)∆=====[GUCCI GANG]=====∆
 ##kr1.login(token="EpA7VCEch16t3bvPykY6.a/bZ0Ij6MpU3J0E4fMGKDG.r0p0SrYcYZkf0MoopaLKcVH/CRIhtccD077Z9vI/AmY=")
 ##kr1.loginResult()
 ##print "=====[GUCCI GANG]====="
 
-##kr1 = LINETCR.LINE()
+##kr1 = LINE.LINE()
 #kr1.login(qr=True)∆=====[GUCCI GANG]=====∆
 ##kr1.login(token="Epeavi2jKtkXZnIql4Ke.WKfQFLNYkcNd40Yjxut+tG.YqcLGcW+sthILvyMnjpPutKlQm9LQSNzq11G62FA8UU=")
 ##kr1.loginResult()
